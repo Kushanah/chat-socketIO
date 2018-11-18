@@ -1,4 +1,4 @@
-var socket = io.connect("localhost:3001");
+var socket = io.connect("localhost:8000");
 var pseudo;
 var notification = new Audio('music/1rKY.mp3');
 
