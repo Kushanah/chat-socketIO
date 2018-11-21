@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 var io = require('socket.io')(http);
-const port = 8080;
+const port = process.env.PORT || 8080;
 var usersAlive = 0;
 
 app.use(express.static(__dirname + '/node_modules/socket.io-client/dist'));
