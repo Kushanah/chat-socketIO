@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 var io = require('socket.io')(http);
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8000;
 var usersAlive = 0;
 
 app.use(express.static(__dirname + '/node_modules/socket.io-client/dist'));
@@ -32,5 +32,4 @@ io.on('connection', function(socket){
   });
 });
 
-app.listen(port, () => console.log("Listening on *:8080"));
-http.listen(8000)
+http.listen(port)
