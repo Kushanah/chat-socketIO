@@ -1,0 +1,58 @@
+<!-- views/contact.ejs -->
+<script>autocomplete = "new-password";</script>
+<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script defer src="static/scripts/zxcvbn.js"></script>
+<script defer src="static/scripts/formSystem.js"></script>
+<link rel="stylesheet" href="bulma/css/bulma.css">
+<link rel="stylesheet" href="static/css/form.css">
+<div id="form-container">
+    <div class="form-header">
+        <h3 class="subtitle is-3">Inscrivez-vous sur notre chat !</h3>
+    </div>
+    <% switch (errors) {
+        case "none":
+            break;
+    case "name": %>
+    <article class="message is-danger">
+        <div class="message-body">
+            Pseudo <b>déjà utilisé</b>
+        </div>
+    </article>
+    <% break;
+    case "vide": %>
+    <article class="message is-danger">
+        <div class="message-body">
+            Champs <b>vide</b>
+        </div>
+    </article>
+    <% break;
+    } %>
+    <form autocomplete="off" method="post" onsubmit="finalVerif()" action="/register" novalidate
+          autocomplete="new-password">
+        <div class="form-field field">
+            <p class="control has-icons-left has-icons-right">
+                <input class="input" id="pseudo" name="pseudo" type="text" maxlength="100" onblur="verifForm()"
+                       autofocus placeholder="Pseudo"></input>
+                <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                </span>
+            </p>
+        </div>
+        <div class="form-field field">
+            <p class="control has-icons-left has-icons-right">
+                <input class="input" id="password" name="password" type="password" maxlength="100" value=""
+                       placeholder="Password" oninput="verifPassWord()" onblur="verifForm()"/>
+                <span class="icon is-small is-left">
+                    <i class="fas fa-key"></i>
+                </span>
+            </p>
+        </div>
+        <div class="form-actions">
+            <p class="control has-icons-left">
+                <input id="btn-submit" type="submit" onclick="finalVerif()" class="button is-success"
+                       value="S'inscrire !">
+            </p>
+        </div>
+    </form>
+</div>
+
