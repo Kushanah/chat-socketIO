@@ -1,12 +1,12 @@
 <!doctype html>
-<html>
+<html lang="fr">
 <head>
     <script>const pseudo = "<%= pseudo %>";</script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="bulma/css/bulma.css">
+    <link rel="stylesheet" href="static/css/bulma.min.css">
     <link rel="stylesheet" href="bulma/dist/css/bulma-tooltip.min.css">
     <script src="socket.io.js"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script defer src="static/scripts/fontawesome.js"></script>
     <link rel="stylesheet" href="static/css/chat.css">
     <script src="static/scripts/chatSystem.js"></script>
     <title>Un coin tranquille</title>
@@ -26,6 +26,16 @@
 <template id="joinTemplate">
     <div class="join">
         <p class="tag is-light"></p>
+    </div>
+</template>
+<template id="kickTemplate">
+    <div class="join">
+        <p class="tag is-danger"></p>
+    </div>
+</template>
+<template id="kickModTemplate">
+    <div class="join">
+        <p class="tag is-info"></p>
     </div>
 </template>
 
@@ -48,7 +58,7 @@
                      alt="Profile image">
             </figure>
             <div id="inputForm" class="control">
-                <input class="input" type="text" placeholder="Message">
+                <input id="inputText" class="input" type="text" placeholder="Message">
             </div>
             <div id="buttonForm" class="control">
                 <a onclick="send();return false" class="button is-info">
