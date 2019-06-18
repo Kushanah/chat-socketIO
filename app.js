@@ -76,7 +76,10 @@ app.get("/logout", function(req, res) {
         }
     });
 });
+// Panel
 app.get("/panel", (req, res) => pageModule.admin.getHomePage(req, res));
+app.get("/panel/users", (req, res) => pageModule.admin.getUsersPage(req, res));
+
 
 app.post("/login", function(req, res) {
     moduleDB.getLogin(req.body.pseudo, db, (r) => {
@@ -92,9 +95,8 @@ app.post("/login", function(req, res) {
     });
 });
 app.post("/register", function(req, res) {
-    let hash = bcrypt.hashSync(req.body.password, salt);
-    const values = [req.body.pseudo, hash, 0];
     if(req.body.pseudo && req.body.password) {
+        const values = [req.body.pseudo, bcrypt.hashSync(req.body.password, salt), 0];
         moduleDB.checkPseudo(req.body.pseudo, db, (r) => {
             if(r) {
                 moduleDB.addAccount(values, db, () => {

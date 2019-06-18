@@ -19,4 +19,9 @@ module.exports = [
         code : require("./methods/socketio/listSocket"),
         roleRequire : 1,
     },
+    {
+        name : "user.ejs",
+        code : require("./methods/user"),
+        roleRequire : 1,
+    },
 ];

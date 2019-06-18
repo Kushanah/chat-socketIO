@@ -2,6 +2,7 @@ const queryList = {
     pseudoId : "SELECT id,pseudo from public.users WHERE id = $1",
     visitView : "SELECT value from public.statics WHERE data = 'visits'",
     login : "SELECT id,pseudo,password,role from public.users WHERE pseudo = $1",
+    info : "SELECT id,pseudo,role from public.users WHERE pseudo = $1",
     register : "INSERT INTO public.users(pseudo, password, role) VALUES($1, $2, $3) RETURNING *",
     pseudo : "SELECT pseudo from public.users WHERE pseudo = $1",
     list : "SELECT MAX(ID) AS Id FROM public.users",
@@ -60,6 +61,13 @@ exports.getLogin = function(pseudo, db, callback) {
     db.query(queryList.login, [pseudo]).catch((e) => console.error(e.stack)).then((res) => result = res.rows[0]).then(() => {
         callback(result);
     });
+};
+exports.getInfoAccount = function(pseudo, db, callback) {
+    db.query(queryList.info, [pseudo]).catch((e) => {
+        console.error(e.stack);
+        callback("Error");
+    }).then((res) => callback(res));
+
 };
 exports.addAccount = function(account, db, callback) {
     let result;
