@@ -19,16 +19,16 @@ const api = {
     admin : require("./api/admin/data"),
 };
 
-const saltRounds = process.env.salt || 4;
+const saltRounds = process.env.SALT || 4;
 const salt = bcrypt.genSaltSync(saltRounds);
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 80;
 const storageSession = session({
-    secret : process.env.secret || "secret :O"
+    secret : process.env.SECRET || "secret :O"
 });
 
 let usersAlive = 0;
 const db = new Pool({
-    connectionString : process.env.db,
+    connectionString : process.env.DB,
 });
 
 app.use(express.static(__dirname + "/node_modules/socket.io-client/dist/"));
