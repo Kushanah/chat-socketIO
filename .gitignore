@@ -70,3 +70,6 @@ typings/
 \.idea/vcs\.xml
 
 \.idea/workspace\.xml
+
+#PM2
+ecosystem.config.js
