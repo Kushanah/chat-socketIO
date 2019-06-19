@@ -33,7 +33,7 @@ const db = new Pool({
 
 app.use(express.static(__dirname + "/node_modules/socket.io-client/dist/"));
 app.use("/bulma", express.static(__dirname + "/node_modules/bulma-tooltip/"));
-app.use("/static", express.static(__dirname + "/public"));
+app.use("/static", express.static(__dirname + "/static"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true,}));
 app.use(storageSession);
