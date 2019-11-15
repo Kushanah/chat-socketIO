@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <script>const pseudo = "<%= pseudo %>";</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="static/css/bulma.min.css">
+    <link rel="stylesheet" href="bulma/dist/css/bulma-tooltip.min.css">
+    <script src="socket.io.js"></script>
+    <script defer src="static/scripts/fontawesome.js"></script>
+    <link rel="stylesheet" href="static/css/chat.css">
+    <script src="static/scripts/chatSystem.js"></script>
+    <title>Un coin tranquille</title>
+</head>
+<body>
+
+<template id="userTemplate">
+    <article class="media messageUser">
+        <figure class="media-left image imageUser is-32x32 tooltip is-tooltip-right " data-tooltip="Pseudo">
+            <img src="https://bulma.io/images/placeholders/128x128.png" class="is-rounded" alt="Profile image">
+        </figure>
+        <div class="media-content">
+            <span class="tag is-medium is-info"></span>
+        </div>
+    </article>
+</template>
+<template id="joinTemplate">
+    <div class="join">
+        <p class="tag is-light"></p>
+    </div>
+</template>
+<template id="kickTemplate">
+    <div class="join">
+        <p class="tag is-danger"></p>
+    </div>
+</template>
+<template id="kickModTemplate">
+    <div class="join">
+        <p class="tag is-info"></p>
+    </div>
+</template>
+
+<template id="meTemplate">
+    <article class="media messageMe">
+        <div class="media-content messageMe">
+            <span class="tag is-medium is-success"></span>
+        </div>
+        <figure class="media-right image imageUser is-32x32 tooltip is-tooltip-left" data-tooltip="Pseudo">
+            <img src="https://bulma.io/images/placeholders/128x128.png" class="is-rounded" alt="Profile image">
+        </figure>
+    </article>
+</template>
+<div id="chatDiv">
+    <div id="message"></div>
+    <form id="chatForm" onsubmit="send();return false">
+        <div id="sendControl" class="field has-addons">
+            <figure class="image imageUser is-32x32 tooltip is-tooltip-right " data-tooltip="Vous">
+                <img id="menuImage" src="https://bulma.io/images/placeholders/128x128.png" class="is-rounded"
+                     alt="Profile image">
+            </figure>
+            <div id="inputForm" class="control">
+                <input id="inputText" class="input" type="text" placeholder="Message">
+            </div>
+            <div id="buttonForm" class="control">
+                <a onclick="send();return false" class="button is-info">
+                    Envoyer<i style="margin-left: 10px" class="fas fa-paper-plane"></i>
+                </a>
+            </div>
+        </div>
+    </form>
+</div>
+<script>socket.emit("join")</script>
+</body>
+</html>

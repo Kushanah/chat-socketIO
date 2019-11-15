@@ -1,0 +1,50 @@
+<!-- views/contact.ejs -->
+<script defer src="static/script/fontawesome.js"></script>
+<link rel="stylesheet" href="static/css/bulma.min.css">
+<link rel="stylesheet" href="static/css/form.css">
+<div id="form-container" class="box">
+    <div class="form-header">
+        <h3 class="subtitle is-3">Connexion !</h3>
+    </div>
+    <% switch (errors) {
+        case "none":
+            break;
+    case "incorrect": %>
+    <article class="message is-danger">
+        <div class="message-body">
+            Mot de passe/Pseudo <b>incorrect</b>
+        </div>
+    </article>
+    <% break;
+    case "logout": %>
+    <article class="message is-info">
+        <div class="message-body">
+            Déconnection réussie
+        </div>
+    </article>
+    <% break;
+    } %>
+    <form class="field" method="post" action="/login" novalidate>
+
+        <div class="field control has-icons-left has-icons-right">
+            <input class="input is-medium" id="pseudo" name="pseudo" type="text" maxlength="100" autofocus
+                   placeholder="Pseudo"/>
+            <span class="icon is-small is-left">
+                   <i class="fas fa-user"></i>
+            </span>
+        </div>
+
+        <div class="field control has-icons-left has-icons-right">
+            <input class="input is-medium" id="password" name="password" type="password" maxlength="100" value=""
+                   placeholder="Password"/>
+            <span class="icon is-small is-left">
+                <i class="fas fa-key"></i>
+            </span>
+        </div>
+        <div id="btn-div" class="field control has-icons-left">
+            <input type="submit" class="button is-success" value="Se connecter !">
+        </div>
+        <a class="help" href="register">Vous n'êtes pas encore inscrit ?</a>
+    </form>
+</div>
+

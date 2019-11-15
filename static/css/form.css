@@ -1,0 +1,23 @@
+.form-header {
+    text-align: center;
+    margin-bottom: 0.4%;
+}
+
+#form-container {
+    margin: 6%;
+    padding: 2.5% 4% 4%;
+
+}
+
+#pseudo {
+    resize: none;
+    font-weight: 300;
+}
+
+#btn-div {
+    float: right;
+}
+
+#password {
+    font-weight: 300;
+}

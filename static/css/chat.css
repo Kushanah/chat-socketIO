@@ -1,0 +1,45 @@
+#sendControl {
+  position: fixed;
+  width: 100%;
+    bottom: 3%;
+    padding: 1%;
+    height: 5%;
+    background: #ffff;
+}
+
+.join {
+    text-align: center;
+    margin: 0.1%;
+}
+
+#message {
+    height: 91%;
+    margin: 1% 1% 0;
+    padding-bottom: 8%;
+}
+
+#menuImage {
+  position: absolute;
+  top: 50%;
+    transform: translate(0%, -50%);
+}
+
+.messageMe {
+    text-align: right;
+}
+
+.messageUser {
+    margin: 1%;
+}
+
+.imageUser {
+    margin-right: 0.5%;
+}
+
+.imageMe {
+    margin-left: 0.5%;
+}
+
+#inputForm {
+    width: 100%;
+}

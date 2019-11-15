@@ -1,0 +1,52 @@
+<!-- views/contact.ejs -->
+<script>autocomplete = "new-password";</script>
+<script defer src="static/script/fontawesome.js"></script>
+<script defer src="static/scripts/zxcvbn.js"></script>
+<script defer src="static/scripts/formSystem.js"></script>
+<link rel="stylesheet" href="static/css/bulma.min.css">
+<link rel="stylesheet" href="static/css/form.css">
+<div id="form-container" class="box">
+    <div class="form-header">
+        <h3 class="subtitle is-3">Inscription !</h3>
+    </div>
+    <% switch (errors) {
+        case "none":
+            break;
+    case "name": %>
+    <article class="message is-danger">
+        <div class="message-body">
+            Pseudo <b>déjà utilisé</b>
+        </div>
+    </article>
+    <% break;
+    case "vide": %>
+    <article class="message is-danger">
+        <div class="message-body">
+            Champs <b>vide</b>
+        </div>
+    </article>
+    <% break;
+    } %>
+    <form autocomplete="off" method="post" onsubmit="finalVerif()" action="/register" novalidate autocomplete="new-password">
+        <div class="field control has-icons-left has-icons-right">
+            <input class="input is-medium" id="pseudo" name="pseudo" type="text" maxlength="100" autofocus
+                   placeholder="Pseudo"/>
+            <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+            </span>
+        </div>
+        <div class="field control has-icons-left has-icons-right">
+            <input class="input is-medium" id="password" name="password" type="password" maxlength="100" value=""
+                   placeholder="Password"/>
+            <span class="icon is-small is-left">
+                <i class="fas fa-key"></i>
+            </span>
+        </div>
+
+        <div id="btn-div" class="field control has-icons-left">
+            <input type="submit" class="button is-success" value="S'inscrire !">
+        </div>
+        <a class="help" href="register">Vous êtes déjà inscrit ?</a>
+    </form>
+</div>
+
