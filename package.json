@@ -11,7 +11,7 @@
     "express-layout": "^0.1.0",
     "express-session": "^1.15.6",
     "pg": "^7.7.1",
-    "socket.io": "^2.1.1",
+    "socket.io": "^2.4.0",
     "socket.io-client": "^2.1.1"
   },
   "devDependencies": {
